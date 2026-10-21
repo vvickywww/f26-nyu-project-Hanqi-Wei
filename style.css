@@ -8,3 +8,15 @@
 }
 
 /* START BELOW */
+
+/* Typography */
+heading: 'DM Sans'
+body: 'Moodli'
+
+/* Colors */
+primary: #B7C8B0;       /* Soft green */
+accent: #54745B;        /* Forest Sage */
+bg: #F7F4EC;            /* Beige */
+text: #263D30; #000000;       /* Deep Evergreen */ /* Black */ 
+
+/* Spacing Scale (8px Multiples) */
