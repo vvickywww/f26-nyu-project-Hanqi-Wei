@@ -88,6 +88,6 @@ Using the array and DOM manipulation methods learned in class:
 5. Finally, each completed card is appended to `#challenge-gallery` using `.appendChild()`.
 
 ### Challenges Encountered
-Currently, the script displays all 8 challenge cards on the page simultaneously to fulfill the assignment's dynamic rendering requirements. However, **this does not reflect my final visual and interactive design intent**. 
+Currently, the script displays all 8 challenge cards on the page simultaneously to fulfill the assignment's dynamic rendering requirements. However, this does not reflect my final visual and interactive design intent. 
 
-My goal for the app is to display **only one challenge card at a time** as a flashcard/prompt. In the upcoming iteration, I plan to refactor the display logic so that clicking the *"Doesn’t make sense? Shuffle"* button picks a single random challenge from the array and renders only that card on the screen.
+My goal for the app is to display only one challenge card at a time as a flashcard/prompt. In the upcoming iteration, I plan to refactor the display logic so that clicking the "Doesn’t make sense? Shuffle" button picks a single random challenge from the array and renders only that card on the screen.
