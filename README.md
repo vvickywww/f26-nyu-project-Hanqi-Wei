@@ -73,3 +73,21 @@ A cold start takes **1–3 minutes**. Here's why:
 * **Your work is saved automatically.** Even if the Codespace stops, the files are stored on GitHub. You won't lose anything.  
 * **You get a fixed number of free hours per month** through the GitHub Student Developer Pack. A cold start uses some of those hours just booting up, so it's worth keeping one Codespace alive while you're actively working.  
 * **If you need to work offline,** you can always install VS Code and Git locally instead but it does take some set up — Codespaces is a convenience, not a requirement.
+
+### Weekly Documentation & Reflection
+
+### Data Displayed
+I created a challenge,js containing 8 distinct presentation practice scenarios (e.g., *Slides Break Down*, *Blank Moment*, *Confused Audience*). Each item is an object structured with a `name` and a `description`.
+
+### How JavaScript Creates the HTML
+Using the array and DOM manipulation methods learned in class:
+1. JavaScript references the `#challenge-gallery` container in `challenge.html`.
+2. A `forEach` loop iterates through the `challenge` array.
+3. Inside the loop, `document.createElement("div")` creates a container card with the class `challenge`.
+4. It creates `<h2>` and `<p>` elements, populates their text using `.textContent`, and appends them into the `challenge` card.
+5. Finally, each completed card is appended to `#challenge-gallery` using `.appendChild()`.
+
+### Challenges Encountered
+Currently, the script displays all 8 challenge cards on the page simultaneously to fulfill the assignment's dynamic rendering requirements. However, **this does not reflect my final visual and interactive design intent**. 
+
+My goal for the app is to display **only one challenge card at a time** as a flashcard/prompt. In the upcoming iteration, I plan to refactor the display logic so that clicking the *"Doesn’t make sense? Shuffle"* button picks a single random challenge from the array and renders only that card on the screen.
