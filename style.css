@@ -9,7 +9,177 @@
 
 /* START BELOW */
 
-:root { --primary: #B7C8B0; --accent: #54745B; --bg: #F7F4EC; --text: #263D30; }
-body { background-color: var(--bg); color: var(--text); font-family: "Moodli", sans-serif; }
-h1, h2 { font-family: "DM Sans", sans-serif; }
-section { padding: 16px; margin-bottom: 24px; border: 1px solid var(--accent); }
+/* Base Page Setup */
+:root {
+  /* 8px Spacing Grid System */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Mooli', sans-serif;
+  background-color: #F7F4EC;
+  color: #263D30;
+  line-height: 1.5; /* Base font 16px * 1.5 = 24px line-height (3 x 8px unit) */
+}
+
+h1, h2, h3, h4 {
+  font-family: 'DM Sans', sans-serif;
+  color: #1A1A1A;
+  margin-bottom: var(--space-16); /* 2 x 8px spacing unit */
+}
+
+/* Limit line length for comfortable reading */
+p, .hero-subtitle {
+  max-width: 65ch;
+  margin-bottom: var(--space-16); /* 2 x 8px spacing unit */
+}
+/* Step 2 — Page Shell Grid */
+/* page shell: centered container with 32px vertical gap between sections */
+.page {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Header: Flexbox for 1D row alignment */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #B7C8B0;
+}
+
+nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: #263D30;
+  font-weight: 600;
+}
+
+/* Hero Section: Centered stack */
+.hero {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.hero h1 {
+  font-size: 2.25rem;
+  margin-bottom: 16px;
+}
+
+/* Step 3 — Desktop Grid Rules for 2D Sections */
+
+/* setup-menu: 3-column row for feature cards on desktop */
+.setup-menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border: 1px solid #B7C8B0;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+/* practice-active: two columns — slides on left (3fr), challenge card on right (2fr) */
+.practice-active {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.slides-viewport {
+  background-color: #B7C8B0;
+  border-radius: 8px;
+  padding: 32px;
+  min-height: 300px;
+}
+
+.challenge-card {
+  background-color: #54745B;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+/* CTA Group: Flexbox for button row */
+.cta-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 24px;
+  background-color: #54745B;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* footer: four link columns on desktop */
+.site-footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-top: 32px;
+  border-top: 1px solid #B7C8B0;
+}
+
+
+/* ==========================================================================
+   Step 4 — Single Media Query (Screen widths 700px or narrower)
+   ========================================================================== */
+@media (max-width: 700px) {
+  /* Stack header logo and navigation links vertically */
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+
+  /* Stack menu cards into 1 column */
+  .setup-menu {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack practice area (slides top, challenge card bottom) */
+  .practice-active {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack footer links into 1 column */
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+}
