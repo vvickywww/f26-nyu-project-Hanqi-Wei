@@ -26,160 +26,117 @@
 }
 
 body {
-  font-family: 'Mooli', sans-serif;
+  font-family: 'Mooli';
   background-color: #F7F4EC;
   color: #263D30;
   line-height: 1.5; /* Base font 16px * 1.5 = 24px line-height (3 x 8px unit) */
 }
 
 h1, h2, h3, h4 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans';
   color: #1A1A1A;
   margin-bottom: var(--space-16); /* 2 x 8px spacing unit */
 }
 
-/* Limit line length for comfortable reading */
-p, .hero-subtitle {
-  max-width: 65ch;
-  margin-bottom: var(--space-16); /* 2 x 8px spacing unit */
-}
-/* Step 2 — Page Shell Grid */
-/* page shell: centered container with 32px vertical gap between sections */
-.page {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 24px;
-}
 
-/* Header: Flexbox for 1D row alignment */
-.site-header {
+/* Page Header (1D Component using Flexbox) */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #B7C8B0;
+  padding-bottom: var(--space-16);
+  margin-bottom: var(--space-32);
+  border-bottom: 1px solid var(--primary-green);
 }
 
-nav a {
-  margin-left: 16px;
-  text-decoration: none;
-  color: #263D30;
-  font-weight: 600;
+/* Page Shell Container */
+/* page shell: limits maximum desktop width and centers content */
+main {
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-/* Hero Section: Centered stack */
-.hero {
-  text-align: center;
-  padding: 32px 16px;
-}
+/* DESKTOP GRID RULES (Default / Desktop Frame) */
 
-.hero h1 {
-  font-size: 2.25rem;
-  margin-bottom: 16px;
-}
-
-/* Step 3 — Desktop Grid Rules for 2D Sections */
-
-/* setup-menu: 3-column row for feature cards on desktop */
-.setup-menu {
+/* setup-grid: 3 equal columns — places upload, timer, and setting cards side-by-side on desktop */
+.setup-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: var(--space-24);
+  margin-bottom: var(--space-32);
 }
 
-.card {
+.setup-card {
   background-color: #FFFFFF;
-  border: 1px solid #B7C8B0;
-  border-radius: 8px;
-  padding: 24px;
+  border: 1px solid var(--primary-green);
+  border-radius: var(--space-8);
+  padding: var(--space-24);
 }
 
-/* practice-active: two columns — slides on left (3fr), challenge card on right (2fr) */
-.practice-active {
+/* practice-grid: 2 columns — slide content on left (3fr), visual setting/challenge on right (2fr) */
+.practice-grid {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  gap: 24px;
+  gap: var(--space-24);
   align-items: start;
+  margin-bottom: var(--space-32);
 }
 
-.slides-viewport {
-  background-color: #B7C8B0;
-  border-radius: 8px;
-  padding: 32px;
-  min-height: 300px;
+.practice-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--primary-green);
+  border-radius: var(--space-8);
+  padding: var(--space-24);
+  min-height: 240px;
 }
 
-.challenge-card {
-  background-color: #54745B;
-  color: #FFFFFF;
-  border-radius: 8px;
-  padding: 24px;
+/* next-steps-grid: 2 equal columns — positions action buttons side-by-side on desktop */
+.next-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-16);
+  max-width: 400px;
 }
 
-/* CTA Group: Flexbox for button row */
-.cta-group {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-top: 24px;
-}
-
-.btn {
+/* Buttons and Links */
+button, a.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 12px 24px;
-  background-color: #54745B;
+  min-height: 44px; /* Minimum tap target height */
+  padding: var(--space-8) var(--space-16);
+  margin-top: var(--space-8);
+  background-color: var(--accent-sage);
   color: #FFFFFF;
   border: none;
-  border-radius: 8px;
-  text-decoration: none;
+  border-radius: var(--space-8);
+  font-family: 'DM Sans', sans-serif;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
 }
 
-/* footer: four link columns on desktop */
-.site-footer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  padding-top: 32px;
-  border-top: 1px solid #B7C8B0;
-}
-
-
-/* ==========================================================================
-   Step 4 — Single Media Query (Screen widths 700px or narrower)
-   ========================================================================== */
+/*  MOBILE MEDIA QUERY (Screen widths 700px or narrower)*/
 @media (max-width: 700px) {
-  /* Stack header logo and navigation links vertically */
-  .site-header {
+  /* Header stacks title and timer vertically */
+  header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: var(--space-8);
   }
 
-  nav a {
-    margin-left: 0;
-    margin-right: 16px;
-  }
-
-  /* Stack menu cards into 1 column */
-  .setup-menu {
+  /* index.html setup cards stack into a single column */
+  .setup-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Stack practice area (slides top, challenge card bottom) */
-  .practice-active {
+  /* practice and challenge screens collapse to single column */
+  .practice-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Stack footer links into 1 column */
-  .site-footer {
+  /* report action buttons stack vertically */
+  .next-steps-grid {
     grid-template-columns: 1fr;
   }
 }
