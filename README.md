@@ -108,3 +108,23 @@ My goal for the app is to display only one challenge card at a time as a flashca
 **Technical challenges / Questions:**
 - **Dynamic Challenge Cards:** How to dynamically overlay or insert the challenge card onto the practice screen rather than navigating to a separate HTML page.
 - **Interactive Button Logic:** How to write event listeners for functional buttons, such as triggering file uploads for slides and shuffling random challenge prompts.
+
+# Weekly Summary of Changes — Layout & CSS Grid
+
+## 1. CSS Grid & Layout Structure
+- **Layout Plan Comment:** Added mandatory layout plan comment at top of `style.css` defining 2D grid targets vs. 1D flex components.
+- **Home Setup Section (`.setup-grid`):** Transformed setup cards into a multi-column desktop grid.
+- **Practice Screen (`.practice-grid`):** Applied a `3fr 2fr` two-column layout placing slide preview on the left and visual setting/challenge on the right.
+- **Report Actions (`.next-steps-grid`):** Gridded "Practice Again" and "Go to Home Page" links side-by-side on desktop.
+
+## 2. Flexbox & Component Styling
+- **Header Layout:** Used Flexbox (`display: flex; justify-content: space-between;`) to align header titles and countdown timer.
+- **Vertical Button Stacking:** Formatted setup card buttons (`.setup-card button`) with `width: 100%` and 8px gaps so they stack vertically inside cards.
+
+## 3. 8px Spacing Grid & Typography
+- **Design Tokens:** Added CSS custom variables (`:root`) enforcing an 8px spacing system (`8px`, `16px`, `24px`, `32px`, `48px`) across all padding, margins, and gaps.
+- **Google Fonts:** Linked `Mooli` and `DM Sans` in HTML `<head>` with `sans-serif` fallback declarations.
+
+## 4. Single Mobile Breakpoint
+- Added `@media (max-width: 700px)` block at the bottom of `style.css`.
+- Transformed desktop multi-column grids (`repeat(3, 1fr)`, `3fr 2fr`) into single-column (`1fr`) stacks and changed header direction to `column` for mobile screens.
