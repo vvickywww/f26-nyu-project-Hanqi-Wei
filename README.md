@@ -94,3 +94,17 @@ Using the array and DOM manipulation methods learned in class:
 Currently, the script displays all 8 challenge cards on the page simultaneously to fulfill the assignment's dynamic rendering requirements. However, this does not reflect my final visual and interactive design intent. 
 
 My goal for the app is to display only one challenge card at a time as a flashcard/prompt. In the upcoming iteration, I plan to refactor the display logic so that clicking the "Doesn’t make sense? Shuffle" button picks a single random challenge from the array and renders only that card on the screen.
+
+## Structure Audit — [10.26]
+
+**Fixed today:**
+- Resolved script linking on `challenge.html` so JavaScript loads and executes properly.
+- Created and linked the main `style.css` stylesheet across all HTML pages.
+
+**Still missing (building before the layout assignment):**
+- Slide mockups and presentation background image assets.
+- Random challenge card pop-up functionality during active practice.
+
+**Technical challenges / Questions:**
+- **Dynamic Challenge Cards:** How to dynamically overlay or insert the challenge card onto the practice screen rather than navigating to a separate HTML page.
+- **Interactive Button Logic:** How to write event listeners for functional buttons, such as triggering file uploads for slides and shuffling random challenge prompts.
