@@ -1,22 +1,20 @@
-/* === RESET === */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Mooli&display=swap');
 
-/* START BELOW */
-
-/* Base Page Setup */
+/* Base Page Setup & 8px Spacing Grid */
 :root {
-  /* 8px Spacing Grid System */
+  /* Spacing Grid (Multiples of 8px) */
   --space-8: 8px;
   --space-16: 16px;
   --space-24: 24px;
   --space-32: 32px;
   --space-48: 48px;
+
+  /* Design Tokens */
+  --bg-beige: #F7F4EC;
+  --primary-green: #B7C8B0;
+  --accent-sage: #54745B;
+  --text-dark: #263D30;
+  --text-black: #1A1A1A;
 }
 
 * {
@@ -26,18 +24,23 @@
 }
 
 body {
-  font-family: 'Mooli';
-  background-color: #F7F4EC;
-  color: #263D30;
-  line-height: 1.5; /* Base font 16px * 1.5 = 24px line-height (3 x 8px unit) */
+  font-family: 'Mooli', sans-serif;
+  background-color: var(--bg-beige);
+  color: var(--text-dark);
+  line-height: 1.5;
+  padding: var(--space-24);
 }
 
 h1, h2, h3, h4 {
-  font-family: 'DM Sans';
-  color: #1A1A1A;
-  margin-bottom: var(--space-16); /* 2 x 8px spacing unit */
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-black);
+  margin-bottom: var(--space-16);
 }
 
+p {
+  max-width: 65ch;
+  margin-bottom: var(--space-16);
+}
 
 /* Page Header (1D Component using Flexbox) */
 header {
@@ -56,7 +59,7 @@ main {
   margin: 0 auto;
 }
 
-/* DESKTOP GRID RULES (Default / Desktop Frame) */
+/* DESKTOP GRID RULES (Default / Desktop Frame)*/
 
 /* setup-grid: 3 equal columns — places upload, timer, and setting cards side-by-side on desktop */
 .setup-grid {
@@ -116,7 +119,7 @@ button, a.btn {
   cursor: pointer;
 }
 
-/*  MOBILE MEDIA QUERY (Screen widths 700px or narrower)*/
+/* MOBILE MEDIA QUERY (Screen widths 700px or narrower)*/
 @media (max-width: 700px) {
   /* Header stacks title and timer vertically */
   header {
@@ -139,4 +142,10 @@ button, a.btn {
   .next-steps-grid {
     grid-template-columns: 1fr;
   }
+}
+/* Stack buttons vertically inside setup cards */
+.setup-card button {
+  display: flex;
+  width: 100%;
+  margin-top: var(--space-8); /* 8px spacing between stacked buttons */
 }
